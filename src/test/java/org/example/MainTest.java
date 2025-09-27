@@ -22,4 +22,10 @@ class MainTest {
         assertEquals(2.302585092994046, calculator.naturalLog(10));
     }
 
+    @Test
+    void testPowerFunction() {
+        assertEquals(8.0, calculator.powerFunction(2, 3));
+    }
+
+
 }

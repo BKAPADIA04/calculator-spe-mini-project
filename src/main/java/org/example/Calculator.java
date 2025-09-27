@@ -19,4 +19,8 @@ public class Calculator {
     public double naturalLog(int x) {
         return Math.log(x); // ln(x)
     }
+
+    public double powerFunction(int x, int b) {
+        return Math.pow(x, b);
+    }
 }
