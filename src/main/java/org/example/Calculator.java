@@ -2,13 +2,9 @@ package org.example;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
+public class Calculator {
 
-    public static int add(int a, int b) {
-        return a + b;
-    }
-
-    public static int subtract(int a, int b) {
-        return a - b;
+    public double squareRoot(int x) {
+        return Math.sqrt(x);
     }
 }
