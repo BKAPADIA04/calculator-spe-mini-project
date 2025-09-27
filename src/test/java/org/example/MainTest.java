@@ -16,4 +16,10 @@ class MainTest {
     void testFactorial() {
         assertEquals(120, calculator.factorial(5));
     }
+
+    @Test
+    void testNaturalLog() {
+        assertEquals(2.302585092994046, calculator.naturalLog(10));
+    }
+
 }

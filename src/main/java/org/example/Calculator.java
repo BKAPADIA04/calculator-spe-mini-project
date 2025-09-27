@@ -15,4 +15,8 @@ public class Calculator {
         }
         return result;
     }
+
+    public double naturalLog(int x) {
+        return Math.log(x); // ln(x)
+    }
 }
