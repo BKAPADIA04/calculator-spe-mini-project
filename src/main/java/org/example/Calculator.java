@@ -7,4 +7,12 @@ public class Calculator {
     public double squareRoot(int x) {
         return Math.sqrt(x);
     }
+
+    public long factorial(int x) {
+        long result = 1;
+        for (int i = 2; i <= x; i++) {
+            result *= i;
+        }
+        return result;
+    }
 }
