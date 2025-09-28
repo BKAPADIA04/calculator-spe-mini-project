@@ -32,7 +32,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>org.example.Calculator</mainClass>
+                            <mainClass>org.example.CalculatorInterface</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
