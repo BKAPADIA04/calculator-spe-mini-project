@@ -29,7 +29,7 @@
         state: absent
         force_kill: true
 
-    - name: Run my container interactively
+    - name: Run my container in detached mode
       community.docker.docker_container:
         name: calculator-cli
         image: bkapadia04/calculator-spe-mini-project:latest
@@ -38,3 +38,6 @@
         interactive: true
         tty: true
         detach: yes
+
+    - name: Run the calculator CLI app inside the container
+      ansible.builtin.command: docker exec -it calculator-cli java -jar app.jar
