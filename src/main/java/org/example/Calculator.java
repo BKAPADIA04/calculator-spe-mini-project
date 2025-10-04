@@ -23,4 +23,5 @@ public class Calculator {
     public double powerFunction(int x, int b) {
         return Math.pow(x, b);
     }
+
 }
