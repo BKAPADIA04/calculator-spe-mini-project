@@ -1,0 +1,27 @@
+- name: Pull and run my calculator CLI Docker image
+  hosts: local
+  gather_facts: false
+
+  tasks:
+    - name: Ensure Docker service is running
+      ansible.builtin.service:
+        name: docker
+        state: started
+
+    - name: Remove existing container if present
+      community.docker.docker_container:
+        name: calculator-cli
+        state: absent
+
+    - name: Pull my Docker image
+      community.docker.docker_image:
+        name: bkapadia04/calculator-spe-mini-project:latest
+        source: pull
+
+    - name: Run my container interactively
+      community.docker.docker_container:
+        name: calculator-cli
+        image: bkapadia04/calculator-spe-mini-project:latest
+        state: started
+        interactive: true
+        tty: true
