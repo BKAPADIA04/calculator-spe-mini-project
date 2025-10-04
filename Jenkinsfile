@@ -46,9 +46,23 @@ pipeline {
             }
         }
 
+        stage('Setup Python Virtualenv') {
+                    steps {
+                        sh '''
+                        python3 -m venv ~/ansible-venv
+                        source ~/ansible-venv/bin/activate
+                        pip install --upgrade pip
+                        pip install ansible requests docker
+                        '''
+                    }
+                }
+
         stage('Ansible Deployment'){
           steps{
-             sh 'ansible-playbook -i inventory.ini deploy.yml'
+             sh '''
+                             source ~/ansible-venv/bin/activate
+                             ansible-playbook -i inventory.ini deploy.yml
+                             '''
           }
         }
     }
