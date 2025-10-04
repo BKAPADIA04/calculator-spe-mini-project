@@ -38,6 +38,3 @@
         interactive: true
         tty: true
         detach: yes
-
-    - name: Run the calculator CLI app inside the container
-      ansible.builtin.command: docker exec -it calculator-cli java -jar app.jar
