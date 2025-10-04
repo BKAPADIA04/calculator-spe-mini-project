@@ -27,11 +27,14 @@
       community.docker.docker_container:
         name: calculator-cli
         state: absent
+        force_kill: true
 
     - name: Run my container interactively
       community.docker.docker_container:
         name: calculator-cli
         image: bkapadia04/calculator-spe-mini-project:latest
         state: started
+        restart: yes
         interactive: true
         tty: true
+        detach: yes

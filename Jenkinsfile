@@ -62,6 +62,7 @@ pipeline {
              sh '''
                              source ~/ansible-venv/bin/activate
                              ansible-playbook -i inventory.ini deploy.yml
+                             deactivate
                              '''
           }
         }
