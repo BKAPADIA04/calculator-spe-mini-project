@@ -36,5 +36,4 @@
         state: started
         restart: yes
         interactive: true
-        tty: true
         detach: yes
