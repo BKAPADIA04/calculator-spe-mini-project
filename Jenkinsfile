@@ -68,11 +68,38 @@ pipeline {
         }
     }
     post {
-            success {
-                echo "✅ Pipeline completed successfully! Image pushed to Docker Hub: ${IMAGE_NAME}:${IMAGE_TAG}"
-            }
-            failure {
-                echo "❌ Pipeline failed! Please check the logs."
-            }
+        success {
+            mail to: 'bkapadia04@gmail.com',
+                 subject: "✅ Jenkins Pipeline Succeeded: ${currentBuild.fullDisplayName}",
+                 body: """
+                 <html>
+                 <body style="font-family: Arial, sans-serif; color: #333;">
+                     <h2 style="color: green;">Pipeline Succeeded ✅</h2>
+                     <p><strong>Job:</strong> ${env.JOB_NAME}</p>
+                     <p><strong>Build #:</strong> ${env.BUILD_NUMBER}</p>
+                     <p><strong>Status:</strong> SUCCESS</p>
+                     <p>View build details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                 </body>
+                 </html>
+                 """,
+                 mimeType: 'text/html'
         }
+
+        failure {
+            mail to: 'bkapadia04@gmail.com',
+                 subject: "❌ Jenkins Pipeline Failed: ${currentBuild.fullDisplayName}",
+                 body: """
+                 <html>
+                 <body style="font-family: Arial, sans-serif; color: #333;">
+                     <h2 style="color: red;">Pipeline Failed ❌</h2>
+                     <p><strong>Job:</strong> ${env.JOB_NAME}</p>
+                     <p><strong>Build #:</strong> ${env.BUILD_NUMBER}</p>
+                     <p><strong>Status:</strong> FAILURE</p>
+                     <p>Check build details: <a href="${env.BUILD_URL}">${env.BUILD_URL}</a></p>
+                 </body>
+                 </html>
+                 """,
+                 mimeType: 'text/html'
+        }
+    }
 }
