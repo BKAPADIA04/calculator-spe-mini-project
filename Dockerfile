@@ -14,7 +14,7 @@ COPY src ./src
 RUN mvn clean install -DskipTests
 
 # Stage 2: Run the application
-FROM eclipse-temurin:17-jre-alpine AS run
+FROM eclipse-temurin:17-jammy AS run
 
 # Set the working directory inside the container
 WORKDIR /app
